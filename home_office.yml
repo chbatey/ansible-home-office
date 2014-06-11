@@ -1,0 +1,11 @@
+---
+- hosts: server
+  vars:
+    http_port: 8080
+  sudo: yes    
+  remote_user: chbatey
+  tasks:
+    - apt:     name=docker.io state=latest
+    - apt: name=openjdk-7-jdk
+    - service: name=jenkins state=running
+    - service: name=docker.io state=running
