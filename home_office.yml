@@ -9,3 +9,8 @@
     - apt: name=openjdk-7-jdk
     - service: name=jenkins state=running
     - service: name=docker.io state=running
+
+-hosts: mac-compute
+  tasks:
+    - name: test connection
+      ping:

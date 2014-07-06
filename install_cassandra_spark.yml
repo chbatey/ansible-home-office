@@ -1,0 +1,19 @@
+- hosts: mac-compute
+  vars:
+    storage_port: 6000
+    ssl_storage_port: 6001
+    native_transport_port: 7042
+    rpc_port: 7160
+    seeds: 127.0.0.1
+    cluster_name: SparkCluster
+    jmx_port: 6199
+  tasks:  
+    - name: Install cassandra and spark with homebrew
+      homebrew: name={{ item }} state=present update_homebrew=yes
+      with_items:
+        - python
+        - cassandra
+        - apache-spark 
+    - name: Update the cassandra cassandra.yaml
+      template: src=cassandra.yaml dest=/usr/local/etc/cassandra/cassandra.yaml
+      template: src=cassandra-env.sh dest=/usr/local/etc/cassandra/cassandra-env.sh 
