@@ -8,23 +8,7 @@
     cluster_name: SparkCluster
     jmx_port: 6199
     home: /Users/chbatey
-  tasks:  
-    - name: Install cassandra and spark with homebrew
-      homebrew: name={{ item }} state=present update_homebrew=yes
-      with_items:
-        - python
-        - cassandra
-        - apache-spark 
-    - name: Update the cassandra cassandra.yaml
-      template: src=cassandra.yaml dest=/usr/local/etc/cassandra/cassandra.yaml
-      template: src=cassandra-env.sh dest=/usr/local/etc/cassandra/cassandra-env.sh 
 
-    - name: Start services at login
-      file: src=/usr/local/opt/{{ item }}/homebrew.mxcl.{{ item }}.plist path=~/Library/LaunchAgents/homebrew.mxcl.{{ item }}.plist state=link force=yes
-      with_items: 
-        - cassandra
- 
-    - name: Setup launch agents for services
-      command: launchctl load {{ home }}/Library/LaunchAgents/homebrew.mxcl.{{ item }}.plist
-      with_items:
-        - cassandra
+  roles:
+    - cassandra
+    - spark

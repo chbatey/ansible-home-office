@@ -1,0 +1,4 @@
+- name: Install spark with homebrew
+  homebrew: name={{ item }} state=present update_homebrew=yes
+  with_items:
+    - apache-spark
