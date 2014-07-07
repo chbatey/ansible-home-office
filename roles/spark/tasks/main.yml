@@ -5,3 +5,6 @@
 
 - name: Override the ip of the slaves so they listen on the correct device
   template: src=start-slave.sh dest=/usr/local/Cellar/apache-spark/1.0.0/libexec/sbin/start-slave.sh
+
+- name: Spark env
+  template: src=spark-env.sh dest=/usr/local/Cellar/apache-spark/1.0.0/libexec/conf/spark-env.sh
