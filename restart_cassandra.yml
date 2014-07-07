@@ -1,0 +1,4 @@
+- hosts: mac-compute
+  tasks:
+    - name: stop cassandra
+      command: launchctl stop homebrew.mxcl.cassandra

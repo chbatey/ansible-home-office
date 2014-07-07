@@ -1,10 +1,12 @@
 - name: Install cassandra with homebrew
   homebrew: name={{ item }} state=present update_homebrew=yes
   with_items:
-    - python
     - cassandra
-- name: Update the cassandra cassandra.yaml
+
+- name: Update the cassandra yaml
   template: src=cassandra.yaml dest=/usr/local/etc/cassandra/cassandra.yaml
+
+- name: Update the cassandra env
   template: src=cassandra-env.sh dest=/usr/local/etc/cassandra/cassandra-env.sh
 
 - name: Start services at login

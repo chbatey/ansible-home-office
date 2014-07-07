@@ -4,11 +4,11 @@
     ssl_storage_port: 6001
     native_transport_port: 7042
     rpc_port: 7160
-    seeds: 127.0.0.1
+    seeds: 10.65.84.81, 10.65.84.105
     cluster_name: SparkCluster
     jmx_port: 6199
-    home: /Users/chbatey
+    home: /Users/cirrus
 
   roles:
-    - cassandra
     - spark
+    - cassandra

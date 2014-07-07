@@ -2,3 +2,6 @@
   homebrew: name={{ item }} state=present update_homebrew=yes
   with_items:
     - apache-spark
+
+- name: Override the ip of the slaves so they listen on the correct device
+  template: src=start-slave.sh dest=/usr/local/Cellar/apache-spark/1.0.0/libexec/sbin/start-slave.sh
