@@ -1,0 +1,12 @@
+---
+- hosts: dev
+  remote_user: chbatey
+  tasks:
+    - name: install brew packages
+      homebrew: update_homebrew=yes name={{ item }}
+      with_items:
+        - wget
+        - scala
+        - sbt
+
+# todo: vagrant, intellij, java8
