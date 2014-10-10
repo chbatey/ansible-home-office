@@ -1,6 +1,15 @@
 ---
 - hosts: dev
   remote_user: chbatey
+  vars:
+    - home_dir: /Users/chbatey/
+    - applications:
+       - firefox
+    - dev_ansible_home: dev/ansible/ 
+    - repos:
+       - repo: git@github.com:chbatey/ansible-home-office.git
+         location: "{{ home_dir }}{{ dev_ansible_home }}/ansible-home-office"
+
   tasks:
     - name: install brew packages
       homebrew: update_homebrew=yes name={{ item }}
@@ -8,5 +17,31 @@
         - wget
         - scala
         - sbt
+
+    - name: install functions to home directory
+      copy: src=functions.sh dest={{ home_dir }}
+
+    - name: Create dev directories
+      file: path={{ home_dir }}{{ item }} state=directory
+      with_items:
+        - "{{ dev_ansible_home }}"
+        - dev/learn/scala/
+
+    - name: Checkout repos
+      git: repo={{ item.repo }} dest={{ item.location }}
+      with_items: repos
+
+
+    - name: Check for installed apps(casks)
+      shell: brew cask list | grep {{ item }}
+      register: installed_applications
+      with_items: applications
+      ignore_errors: true
+
+    - name: Install apps with brew-cask   
+      shell: brew cask install {{ item }}
+      with_items: applications
+      when: item not in installed_applications.results|map(attribute='stdout')
+
 
 # todo: vagrant, intellij, java8
