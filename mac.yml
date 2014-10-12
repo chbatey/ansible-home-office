@@ -5,10 +5,26 @@
     - home_dir: /Users/chbatey/
     - applications:
        - firefox
+       - colloquy
+       - iterm2
+       - skype
+       - vagrant
+       - intellij-idea-ce
+       - evernote
+       - vlc
     - dev_ansible_home: dev/ansible/ 
+    - dev_scassandra_home: dev/os/scassandra/ 
     - repos:
        - repo: git@github.com:chbatey/ansible-home-office.git
-         location: "{{ home_dir }}{{ dev_ansible_home }}/ansible-home-office"
+         location: "{{ home_dir }}{{ dev_ansible_home }}ansible-home-office"
+       - repo: git@github.com:scassandra/scassandra-it-java-driver-2.git
+         location: "{{ home_dir }}{{ dev_scassandra_home }}scassandra-it-java-driver-2"
+       - repo: git@github.com:scassandra/scassandra-it-java-driver-1.git
+         location: "{{ home_dir }}{{ dev_scassandra_home }}scassandra-it-java-driver-1"
+       - repo: git@github.com:scassandra/scassandra-server.git
+         location: "{{ home_dir }}{{ dev_scassandra_home }}scassandra-server"
+       - repo: git@github.com:chbatey/scassandra-java-client.git
+         location: "{{ home_dir }}{{ dev_scassandra_home }}scassandra-java-client"
 
   tasks:
     - name: install brew packages
@@ -17,9 +33,16 @@
         - wget
         - scala
         - sbt
+        - gpg
 
-    - name: install functions to home directory
-      copy: src=functions.sh dest={{ home_dir }}
+    - name: install functions etc to home directory
+      copy: src={{ item }} dest={{ home_dir }}
+      with_items:
+        - functions.sh
+        - .git-completion.bash
+
+    - name: source functions in bash home
+      lineinfile: dest=~/.bash_profile line="source ~/functions.sh"
 
     - name: Create dev directories
       file: path={{ home_dir }}{{ item }} state=directory
@@ -30,7 +53,8 @@
     - name: Checkout repos
       git: repo={{ item.repo }} dest={{ item.location }}
       with_items: repos
-
+      tags: 
+        - repos
 
     - name: Check for installed apps(casks)
       shell: brew cask list | grep {{ item }}
