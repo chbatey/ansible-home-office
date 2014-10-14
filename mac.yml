@@ -35,6 +35,9 @@
         - sbt
         - gpg
 
+    - name: install brew cask
+      command: brew install caskroom/cask/brew-cask
+
     - name: install functions etc to home directory
       copy: src={{ item }} dest={{ home_dir }}
       with_items:
