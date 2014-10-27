@@ -14,6 +14,7 @@
        - vlc
     - dev_ansible_home: dev/ansible/ 
     - dev_scassandra_home: dev/os/scassandra/ 
+    - dev_light_practice: dev/yo/lightpractice/ 
     - repos:
        - repo: git@github.com:chbatey/ansible-home-office.git
          location: "{{ home_dir }}{{ dev_ansible_home }}ansible-home-office"
@@ -25,6 +26,8 @@
          location: "{{ home_dir }}{{ dev_scassandra_home }}scassandra-server"
        - repo: git@github.com:chbatey/scassandra-java-client.git
          location: "{{ home_dir }}{{ dev_scassandra_home }}scassandra-java-client"
+       - repo: git@github.com:balooo/lightpractice.git
+         location: "{{ home_dir }}{{ dev_light_practice }}lightpractice"
 
   tasks:
     - name: install brew packages
@@ -56,6 +59,9 @@
       with_items:
         - "{{ dev_ansible_home }}"
         - dev/learn/scala/
+        - "{{ dev_light_practice }}"
+      tags:
+        - repos
 
     - name: Checkout repos
       git: repo={{ item.repo }} dest={{ item.location }}
