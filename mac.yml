@@ -4,6 +4,10 @@
   vars:
     - home_dir: /Users/chbatey/
     - applications:
+       - virtualbox
+       - caffeine
+       - google-drive
+       - hipchat
        - java
        - firefox
        - colloquy
@@ -36,10 +40,12 @@
     - name: install brew packages
       homebrew: update_homebrew=yes name={{ item }}
       with_items:
+        - htop
         - wget
         - scala
         - sbt
         - gpg
+        - tig
 
     - name: install brew cask
       command: brew install caskroom/cask/brew-cask
