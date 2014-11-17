@@ -60,7 +60,12 @@
         - bash
 
     - name: source functions in bash home
-      lineinfile: dest=~/.bashrc line="source ~/functions.sh"
+      lineinfile: dest=~/.bash_profile line="source ~/functions.sh" create=yes
+      tags:
+        - bash
+    
+    - name: source git completions
+      lineinfile: dest=~/.bash_profile line="source ~/.git-completion.bash" create=yes
       tags:
         - bash
 
