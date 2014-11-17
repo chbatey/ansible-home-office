@@ -4,6 +4,7 @@
   vars:
     - home_dir: /Users/chbatey/
     - applications:
+       - java
        - firefox
        - colloquy
        - iterm2
@@ -12,6 +13,8 @@
        - intellij-idea-ce
        - evernote
        - vlc
+       - sublime-text
+       - google-chrome
     - dev_ansible_home: dev/ansible/ 
     - dev_scassandra_home: dev/os/scassandra/ 
     - dev_light_practice: dev/yo/lightpractice/ 
@@ -46,6 +49,7 @@
       with_items:
         - functions.sh
         - .git-completion.bash
+        - .gitconfig
       tags:
         - bash
 
