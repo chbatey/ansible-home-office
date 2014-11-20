@@ -46,6 +46,7 @@
         - sbt
         - gpg
         - tig
+        - python
 
     - name: install brew cask
       command: brew install caskroom/cask/brew-cask
