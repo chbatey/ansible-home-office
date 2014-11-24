@@ -4,6 +4,7 @@
   vars:
     - home_dir: /Users/chbatey/
     - applications:
+       - ant
        - virtualbox
        - caffeine
        - google-drive
