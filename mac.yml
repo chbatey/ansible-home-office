@@ -23,6 +23,7 @@
     - dev_ansible_home: dev/ansible/ 
     - dev_scassandra_home: dev/os/scassandra/ 
     - dev_light_practice: dev/yo/lightpractice/ 
+    - dev_datastax: dev/datastax/
     - repos:
        - repo: git@github.com:chbatey/ansible-home-office.git
          location: "{{ home_dir }}{{ dev_ansible_home }}ansible-home-office"
@@ -36,6 +37,14 @@
          location: "{{ home_dir }}{{ dev_scassandra_home }}scassandra-java-client"
        - repo: git@github.com:balooo/lightpractice.git
          location: "{{ home_dir }}{{ dev_light_practice }}lightpractice"
+       - repo: git@github.com:chbatey/cassandra-sstable-obfuscator.git
+         location: "{{ home_dir }}{{ dev_datastax }}cassandra-sstable-obfuscator"
+       - repo: git@github.com:chbatey/cassandra-customer-events-dropwizard.git
+         location: "{{ home_dir }}{{ dev_datastax }}cassandra-customer-events-dropwizard"
+       - repo: git@github.com:chbatey/cassandra-customer-events.git
+         location: "{{ home_dir }}{{ dev_datastax }}cassandra-customer-events"
+       - repo: git@github.com:chbatey/vagrant-cassandra-spark.git
+         location: "{{ home_dir }}{{ dev_datastax }}vagrant-cassandra-spark"
 
   tasks:
     - name: install brew packages
@@ -49,8 +58,8 @@
         - tig
         - python
 
-    - name: install brew cask
-      command: brew install caskroom/cask/brew-cask
+    # - name: install brew cask
+    #   command: brew install caskroom/cask/brew-cask
 
     - name: install functions etc to home directory
       copy: src={{ item }} dest={{ home_dir }}
@@ -77,6 +86,7 @@
         - "{{ dev_ansible_home }}"
         - dev/learn/scala/
         - "{{ dev_light_practice }}"
+        - "{{ dev_datastax }}"
       tags:
         - repos
 
