@@ -1,17 +1,20 @@
 ---
 - hosts: dev
-  sudo: yes
   remote_user: chbatey
   vars:
     home_dir: /home/chbatey/
   
   tasks:
    - name: install apt packages
+     sudo: yes
      apt: name={{ item }} state=present
      with_items:
       - htop
       - terminator
       - vim
+
+   - name: copy over git config
+     copy: src=.gitconfig dest={{ home_dir }}
 
   roles:
     - repos

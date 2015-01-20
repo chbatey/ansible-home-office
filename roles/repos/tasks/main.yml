@@ -7,7 +7,7 @@
     - "{{ dev_datastax }}"
 
 - name: Checkout repos
-  git: repo={{ item.repo }} dest={{ item.location }}
+  git: repo={{ item.repo }} dest={{ item.location }} accept_hostkey=true
   with_items: repos
   tags:
    - repos
