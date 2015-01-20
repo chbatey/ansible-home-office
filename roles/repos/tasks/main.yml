@@ -1,0 +1,14 @@
+- name: Create dev directories
+  file: path={{ home_dir }}{{ item }} state=directory
+  with_items:
+    - "{{ dev_ansible_home }}"
+    - dev/learn/scala/
+    - "{{ dev_light_practice }}"
+    - "{{ dev_datastax }}"
+
+- name: Checkout repos
+  git: repo={{ item.repo }} dest={{ item.location }}
+  with_items: repos
+  tags:
+   - repos
+

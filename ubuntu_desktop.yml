@@ -1,0 +1,17 @@
+---
+- hosts: dev
+  sudo: yes
+  remote_user: chbatey
+  vars:
+    home_dir: /home/chbatey/
+  
+  tasks:
+   - name: install apt packages
+     apt: name={{ item }} state=present
+     with_items:
+      - htop
+      - terminator
+      - vim
+
+  roles:
+    - repos
