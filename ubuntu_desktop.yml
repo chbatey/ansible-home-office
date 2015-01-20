@@ -24,6 +24,8 @@
       - ant
       - maven
       - hipchat
+      - curl
+      - openjdk-7-jdk
 
    - name: copy over git config
      copy: src=.gitconfig dest={{ home_dir }}

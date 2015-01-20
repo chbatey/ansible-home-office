@@ -2,5 +2,5 @@ intellij
 javas
 scala
 sbt
-hipchat
 evernote
+gradle
