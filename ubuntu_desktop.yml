@@ -5,16 +5,29 @@
     home_dir: /home/chbatey/
   
   tasks:
+   - name: add hip chat repo
+     sudo: yes
+     apt_repository: repo="deb http://downloads.hipchat.com/linux/apt stable main"
+
+   - name: add the hip chat key
+     sudo: yes
+     apt_key: url=https://www.hipchat.com/keys/hipchat-linux.key validate_certs=no
+   
    - name: install apt packages
      sudo: yes
-     apt: name={{ item }} state=present
+     apt: name={{ item }} state=present update_cache=true
      with_items:
       - htop
       - terminator
       - vim
+      - tig
+      - ant
+      - maven
+      - hipchat
 
    - name: copy over git config
      copy: src=.gitconfig dest={{ home_dir }}
 
+
   roles:
-    - repos
+    - { role: repos, when: "repos == 'true'" }
