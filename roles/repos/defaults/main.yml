@@ -1,24 +1,33 @@
 ---
-dev_ansible_home: dev/ansible/
-dev_scassandra_home: dev/os/scassandra/
-dev_light_practice: dev/yo/lightpractice/
-dev_datastax: dev/datastax/
+dirs:
+  dev_ansible_home: dev/ansible/
+  dev_scassandra_home: dev/os/scassandra/
+  dev_light_practice: dev/yo/lightpractice/
+  dev_datastax: dev/datastax/
+  dev_learn: dev/learn/
+  dev_learn_memcaches: dev/learn/memcaches/
 repos:
   - repo: git@github.com:scassandra/scassandra-it-java-driver-2.git
-    location: "{{ home_dir }}{{ dev_scassandra_home }}scassandra-it-java-driver-2"
+    location: "{{ home_dir }}{{ dirs.dev_scassandra_home }}scassandra-it-java-driver-2"
   - repo: git@github.com:scassandra/scassandra-it-java-driver-1.git
-    location: "{{ home_dir }}{{ dev_scassandra_home }}scassandra-it-java-driver-1"
+    location: "{{ home_dir }}{{ dirs.dev_scassandra_home }}scassandra-it-java-driver-1"
   - repo: git@github.com:scassandra/scassandra-server.git
-    location: "{{ home_dir }}{{ dev_scassandra_home }}scassandra-server"
+    location: "{{ home_dir }}{{ dirs.dev_scassandra_home }}scassandra-server"
   - repo: git@github.com:chbatey/scassandra-java-client.git
-    location: "{{ home_dir }}{{ dev_scassandra_home }}scassandra-java-client"
+    location: "{{ home_dir }}{{ dirs.dev_scassandra_home }}scassandra-java-client"
   - repo: git@github.com:balooo/lightpractice.git
-    location: "{{ home_dir }}{{ dev_light_practice }}lightpractice"
+    location: "{{ home_dir }}{{ dirs.dev_light_practice }}lightpractice"
+  - repo: git@github.com:balooo/lightpractice-stats-spike.git
+    location:  "{{ home_dir }}{{ dirs.dev_light_practice }}lightpractice-spikes"
   - repo: git@github.com:chbatey/cassandra-sstable-obfuscator.git
-    location: "{{ home_dir }}{{ dev_datastax }}cassandra-sstable-obfuscator"
+    location: "{{ home_dir }}{{ dirs.dev_datastax }}cassandra-sstable-obfuscator"
   - repo: git@github.com:chbatey/cassandra-customer-events-dropwizard.git
-    location: "{{ home_dir }}{{ dev_datastax }}cassandra-customer-events-dropwizard"
+    location: "{{ home_dir }}{{ dirs.dev_datastax }}cassandra-customer-events-dropwizard"
   - repo: git@github.com:chbatey/cassandra-customer-events.git
-    location: "{{ home_dir }}{{ dev_datastax }}cassandra-customer-events"
+    location: "{{ home_dir }}{{ dirs.dev_datastax }}cassandra-customer-events"
   - repo: git@github.com:chbatey/vagrant-cassandra-spark.git
-    location: "{{ home_dir }}{{ dev_datastax }}vagrant-cassandra-spark"
+    location: "{{ home_dir }}{{ dirs.dev_datastax }}vagrant-cassandra-spark"
+  - repo: git@github.com:chbatey/memcache-akka-scala.git
+    location: "{{ home_dir }}{{ dirs.dev_learn_memcaches }}memcache-akka-scala"
+  - repo: git@github.com:chbatey/memcache-netty.git
+    location: "{{ home_dir }}{{ dirs.dev_learn_memcaches }}memcache-netty"

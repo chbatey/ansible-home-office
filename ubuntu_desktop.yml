@@ -32,4 +32,4 @@
 
 
   roles:
-    - { role: repos, when: "repos == 'true'" }
+    - { role: repos, when: "checkout == 'true'" }
