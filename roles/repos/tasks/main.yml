@@ -3,7 +3,7 @@
   with_dict: dirs
 
 - name: Checkout repos
-  git: repo={{ item.repo }} dest={{ item.location }} accept_hostkey=true
+  git: repo={{ item.repo }} dest={{ item.location }} accept_hostkey=true force=no
   with_items: repos
   tags:
    - repos

@@ -9,6 +9,8 @@ dirs:
 repos:
   - repo: git@github.com:scassandra/scassandra-it-java-driver-2.git
     location: "{{ home_dir }}{{ dirs.dev_scassandra_home }}scassandra-it-java-driver-2"
+  - repo: git@github.com:chbatey/scassandra-example-java.git
+    location: "{{ home_dir }}{{ dirs.dev_scassandra_home }}scassandra-example"
   - repo: git@github.com:scassandra/scassandra-it-java-driver-1.git
     location: "{{ home_dir }}{{ dirs.dev_scassandra_home }}scassandra-it-java-driver-1"
   - repo: git@github.com:scassandra/scassandra-server.git
