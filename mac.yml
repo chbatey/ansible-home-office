@@ -67,5 +67,3 @@
       shell: brew cask install {{ item }}
       with_items: applications
       when: item not in installed_applications.results|map(attribute='stdout')
-
-# todo: vagrant, intellij, java8
