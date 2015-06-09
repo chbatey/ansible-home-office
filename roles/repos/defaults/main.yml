@@ -18,6 +18,8 @@ repos:
     location: "{{ home_dir }}{{ dirs.dev_scassandra_home }}scassandra-server"
   - repo: git@github.com:chbatey/scassandra-java-client.git
     location: "{{ home_dir }}{{ dirs.dev_scassandra_home }}scassandra-java-client"
+  - repo: git@github.com:scassandra/scassandra-docs.git
+    location: "{{ home_dir }}{{ dirs.dev_scassandra_home }}scassandra-docs"
   - repo: git@github.com:balooo/lightpractice.git
     location: "{{ home_dir }}{{ dirs.dev_light_practice }}lightpractice"
   - repo: git@github.com:balooo/lightpractice-stats-spike.git
