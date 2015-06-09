@@ -7,6 +7,7 @@ dirs:
   dev_datastax: dev/datastax/
   dev_learn: dev/learn/
   dev_learn_memcaches: dev/learn/memcaches/
+  dev_examples: dev/examples/
 repos:
   - repo: git@github.com:scassandra/scassandra-it-java-driver-2.git
     location: "{{ home_dir }}{{ dirs.dev_scassandra_home }}scassandra-it-java-driver-2"
@@ -38,3 +39,11 @@ repos:
     location: "{{ home_dir }}{{ dirs.dev_learn_memcaches }}memcache-netty"
   - repo: git@github.com:chbatey/kafka-unit.git
     location: "{{ home_dir }}{{ dirs.dev_kafka_unit }}kafka-unit"
+  - repo: git@github.com:chbatey/spring-cloud-example.git
+    location: "{{ home_dir }}{{ dirs.dev_examples }}spring-cloud-example"
+  - repo: git@github.com:chbatey/dropwizard-hystrix.git
+    location: "{{ home_dir }}{{ dirs.dev_examples }}dropwizard-hystrix"
+  - repo: git@github.com:chbatey/vagrant-wiremock-saboteur.git
+    location: "{{ home_dir }}{{ dirs.dev_examples }}vagrant-wiremock-saboteur"
+  - repo: git@github.com:chbatey/cassandra-anti-patterns.git
+    location: "{{ home_dir }}{{ dirs.dev_datastax }}cassandra-anti-patterns"
