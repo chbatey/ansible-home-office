@@ -2,6 +2,7 @@
 dirs:
   dev_ansible_home: dev/ansible/
   dev_scassandra_home: dev/os/scassandra/
+  dev_kafka_unit: dev/os/kafka/
   dev_light_practice: dev/yo/lightpractice/
   dev_datastax: dev/datastax/
   dev_learn: dev/learn/
@@ -33,3 +34,5 @@ repos:
     location: "{{ home_dir }}{{ dirs.dev_learn_memcaches }}memcache-akka-scala"
   - repo: git@github.com:chbatey/memcache-netty.git
     location: "{{ home_dir }}{{ dirs.dev_learn_memcaches }}memcache-netty"
+  - repo: git@github.com:chbatey/kafka-unit.git
+    location: "{{ home_dir }}{{ dirs.dev_kafka_unit }}kafka-unit"
