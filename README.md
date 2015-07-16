@@ -1,1 +1,3 @@
-ansible-playbook -i hosts home_office.yml --ask-sudo-pass
+For my mac laptop:
+
+ansible-playbook -i hosts mac.yml --ask-sudo-pass
