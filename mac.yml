@@ -51,9 +51,9 @@
       with_items:
         - functions.sh
         - .gitconfig
-        - .zshrc
+        - .profile
       tags:
-        - shell
+        - shell      
 
     - name: Check for installed apps(casks)
       shell: brew cask list | grep {{ item }}

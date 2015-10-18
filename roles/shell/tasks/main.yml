@@ -1,2 +1,8 @@
 - name: Install ohmyzsh
   command: sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+
+- name: source profile
+  lineinfile: dest=~/.zshrc line="source ~/.profile"
+
+- name: change profile
+  lineinfile: dest=~/.zshrc regexp=^ZSH_THEME= line='ZSH_THEME="robbyrussell"'
