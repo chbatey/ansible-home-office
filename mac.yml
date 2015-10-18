@@ -40,6 +40,7 @@
         - zsh-completions
         - golang
         - tree
+        - watch
       tags:
         - brew
 
