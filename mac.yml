@@ -34,6 +34,12 @@
         - gpg
         - tig
         - python
+        - tmux
+        - zsh
+        - zsh-completions
+        - golang
+      tags:
+        - brew
 
     # - name: install brew cask
     #   command: brew install caskroom/cask/brew-cask

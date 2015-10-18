@@ -9,22 +9,10 @@ dirs:
   dev_learn_memcaches: dev/learn/memcaches/
   dev_examples: dev/examples/
 repos:
-  - repo: git@github.com:scassandra/scassandra-it-java-driver-2.git
-    location: "{{ home_dir }}{{ dirs.dev_scassandra_home }}scassandra-it-java-driver-2"
   - repo: git@github.com:chbatey/scassandra-example-java.git
     location: "{{ home_dir }}{{ dirs.dev_scassandra_home }}scassandra-example"
-  - repo: git@github.com:scassandra/scassandra-it-java-driver-1.git
-    location: "{{ home_dir }}{{ dirs.dev_scassandra_home }}scassandra-it-java-driver-1"
   - repo: git@github.com:scassandra/scassandra-server.git
     location: "{{ home_dir }}{{ dirs.dev_scassandra_home }}scassandra-server"
-  - repo: git@github.com:chbatey/scassandra-java-client.git
-    location: "{{ home_dir }}{{ dirs.dev_scassandra_home }}scassandra-java-client"
-  - repo: git@github.com:scassandra/scassandra-docs.git
-    location: "{{ home_dir }}{{ dirs.dev_scassandra_home }}scassandra-docs"
-  - repo: git@github.com:balooo/lightpractice.git
-    location: "{{ home_dir }}{{ dirs.dev_light_practice }}lightpractice"
-  - repo: git@github.com:balooo/lightpractice-stats-spike.git
-    location:  "{{ home_dir }}{{ dirs.dev_light_practice }}lightpractice-spikes"
   - repo: git@github.com:chbatey/cassandra-sstable-obfuscator.git
     location: "{{ home_dir }}{{ dirs.dev_datastax }}cassandra-sstable-obfuscator"
   - repo: git@github.com:chbatey/cassandra-customer-events-dropwizard.git
@@ -47,3 +35,6 @@ repos:
     location: "{{ home_dir }}{{ dirs.dev_examples }}vagrant-wiremock-saboteur"
   - repo: git@github.com:chbatey/cassandra-anti-patterns.git
     location: "{{ home_dir }}{{ dirs.dev_datastax }}cassandra-anti-patterns"
+  - repo: git@github.com:chbatey/killrauction.git
+    location: "{{ home_dir }}{{ dirs.dev_datastax }}killrauction"
+
