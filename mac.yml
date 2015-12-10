@@ -21,13 +21,15 @@
        - sublime-text
        - google-chrome
   roles:
-    - repos
+    - { role: repos, tags: ["repos"] }
     - { role: shell, tags: ["shell"] }
 
   tasks:
     - name: install brew packages
       homebrew: update_homebrew=yes name={{ item }}
       with_items:
+        - vcsh
+        - mr
         - htop
         - wget
         - scala
