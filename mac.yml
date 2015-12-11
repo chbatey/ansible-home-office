@@ -28,6 +28,7 @@
     - name: install brew packages
       homebrew: update_homebrew=yes name={{ item }}
       with_items:
+        - weechat
         - vcsh
         - mr
         - htop
